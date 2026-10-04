@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    min-height: 100vh; 
+    font-family: "Google Sans Flex", sans-serif;
+    background-image: linear-gradient(-225deg, #69EACB 0%, #EACCF8 48%, #6654F1 100%);
+    display: flex;
+    flex-direction: column;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem;
+}
+
+nav{
+    gap: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #62034d;
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
+li{
+    gap: 0.5rem;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem;
+    width: 100%;
+}
+
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    max-width: 400px;
+    padding: 2rem 0.5rem;
+    text-align: center;
+    border: solid #6654F1;
+    border-radius: 10%;
+    gap: 1rem;
+    background-color: white;
+    box-shadow: 0.5rem 0.6rem rgb(108, 104, 104);
+    
+}
+label{
+    margin-bottom: 1.5rem;
+}
+
+input{
+    outline: none;
+    border: none;
+    color: black;
+    border-bottom: 0.1rem solid rgb(135, 133, 245);
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+button{
+    font-size: 1rem;
+    background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
+}
+
+button:hover{
+    background: blueviolet;
+    color: black;
+}
+
+p{
+font-size: 0.5rem;
+font-weight: bold;
+}
+
+footer{
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: auto;
+}
+
+
+.logo_tb{
+    height: 50vh;
+    border-radius: 50%;
+}
+
+.submenu a{
+    font-family: "Bricolage Grotesque", sans-serif;
+    text-decoration: none;
+    color: #6654F1;
+}
+
+.submenu a:hover{
+    background-color: rgb(255, 0, 144);
+}
+
+#box-seccion{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 1rem;
+    margin: 1rem;
+}
+
+
+#container-buscador {
+    display: none;
+    align-items: center;
+}
+
+.filtros{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    background-color: white;
+    width: 100%;
+    max-width: 500px;
+    gap: 0.5rem;
+    border: solid 0.1rem black;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 0.2rem 0.5rem rgba(102, 84, 241, 0.15);
+    margin: 0.5rem auto; 
+}
+
+.fa-user, .fa-lock, .fa-magnifying-glass{
+    color: #6654F1;
+    font-size: 1.5rem;
+}
+
+.button{
+    color: #6654F1;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 1rem;
+}
+
+.mensaje-Inicio{
+    font-family: "Bricolage Grotesque", sans-serif;
+    text-align: center;
+    font-size: 2rem;
+    margin: 0.5rem ;
+    gap: 1rem;
+    animation: mover 10s ease-in-out 0s infinite;
+}
+.bricolage{
+    font-family: "Bricolage Grotesque", sans-serif;
+}
+
+@keyframes mover {  
+    20% {  
+    color: #04f61c;
+    }
+    30%{
+    color: aqua;
+    }  
+    30% {  
+    color: #f5075e;
+    }
+    20%{
+    color: #6654F1;
+    }
+    }
+
+
+.para-Ana{
+    text-align: center;
+    font-style: italic;
+    font-size: 1.5rem;
+    margin: 0.5rem ;
+    gap: 1rem;
+}
+
+.mensaje-general{
+    text-align: center;
+    font-style: italic;
+    font-size: 1.5rem;
+    margin: 0.5rem ;
+    gap: 1rem;
+    color: rgb(2, 7, 103);
+}
+
+
+
+@media  screen and (max-width: 768px) {
+main{
+    margin: 1rem ;
+}
+    .logo_tb{
+        height: 30vh;
+    }
+
+    .titulo,
+    .fa-user,
+    .fa-lock{
+        font-size: 1.2rem;
+    }
+
+    .para-Ana{
+    text-align: center;
+    font-size: 1.2rem;
+    margin: auto ;
+}
+
+.mensaje-Inicio{
+    font-size: 1.2rem;
+}
+
+
+}
+
+@media  screen and (max-width: 575px) {
+
+    nav{
+        margin: auto;
+        font-size: 1rem;
+    }
+
+    main{
+        margin: 0.5rem;
+    }
+
+    form{
+        max-width: 300px;
+    }
+
+    .logo_tb{
+        height: 20vh;
+    }
+
+    .mensaje-Inicio{
+    font-size: 1rem;
+    margin: 0.5rem;
+}
+
+    .para-Ana{
+    text-align: center;
+    font-size: 1rem;
+    margin: auto;
+}
+
+.mensaje-general{
+    font-size: 1rem;
+    margin: 0.5rem;
+    gap: 1rem;
+}
+
+#box-seccion{
+    margin: 0.5rem;
+}
+
+    .filtros{
+    font-size: 0.8rem;
+    max-width: 350px;
+}
+}
+
+
+
+
