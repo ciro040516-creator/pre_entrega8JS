@@ -158,7 +158,7 @@ const datosPeople = localStorage.getItem("Datos Lista");
         <a href="#">${persona.telefono.trim()}</a>
         </td>
         <td>
-        <button onclick="borrarPeople(${index})">❌</button>
+        <button onclick="borrarPeople(${index})">X</button>
         </td>
         </tr>
     `;
