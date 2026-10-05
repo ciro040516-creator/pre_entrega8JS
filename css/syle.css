@@ -203,14 +203,37 @@ footer{
 }
 
 
+.tabla1{
+    display: none;
+    max-width: 600px;
+    font-family: "Bricolage Grotesque", sans-serif;
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: white;
+    width: 90%;
+    gap: 0.5rem;
+    margin: 1.5rem auto;
+    padding: 1rem;
+}
+
+.tabla1 table{
+    width: 100%;
+}
+
+.formPeople{
+    display: none;
+}
+
+
 
 @media  screen and (max-width: 768px) {
-main{
+
+    main{
     margin: 1rem ;
-}
+    }
     .logo_tb{
         height: 30vh;
-    }
+    }   
 
     .titulo,
     .fa-user,
@@ -227,9 +250,8 @@ main{
 .mensaje-Inicio{
     font-size: 1.2rem;
 }
-
-
 }
+
 
 @media  screen and (max-width: 575px) {
 
@@ -274,6 +296,11 @@ main{
     .filtros{
     font-size: 0.8rem;
     max-width: 350px;
+}
+
+.tabla1{
+    max-width: 400px;
+    font-size: 1rem;
 }
 }
 

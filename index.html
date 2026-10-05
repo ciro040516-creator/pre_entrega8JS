@@ -26,8 +26,6 @@
 
     <main>
         <p class="mensaje-Inicio bricolage"></p>
-        <h4 class="para-Ana"></h4>
-        <h4 class="mensaje-general"></h4>
 
         <form action="#" method="post">
             <label>
@@ -40,7 +38,35 @@
             </label>
             <button class="button" id="boton">Ingresar</button>
         </form>
+
+        <h4 class="para-Ana"></h4>
+        <h4 class="mensaje-general"></h4>
+
     </main>
+
+    <section class="formPeople">
+        <form id="registroPeople">
+            <input type="number" id="nuevoNumero" placeholder="N° de Lista">
+            <input type="text" id="nuevoNombre" placeholder="Nombre">
+            <input type="text" id="nuevoTelefono" placeholder="Teléfono">
+            <button onclick="añadirPeople()">Agregar</button>
+        </form>
+    </section>
+
+    <section>
+        <div id="container-tabla" class="tabla1">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>N° de Lista</th>
+                        <th>Nombre</th>
+                        <th>Teléfono</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-general"></tbody>
+            </table>
+        </div>
+    </section>
 
     <footer>
         <p>© 2026 Proyectos Di&Bere. Todos los derechos reservados.</p>

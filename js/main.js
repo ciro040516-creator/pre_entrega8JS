@@ -24,7 +24,7 @@ const mensajeInicio = document.querySelector('p');
 mensajeInicio.textContent = "Bienvenidos!!! Para ingresar coloque su ID y su Contraseña."
 mainIncio.prepend(mensajeInicio);
 
-//menu desplegable - renderizado
+//menu desplegable
 const boxIngreso = document.querySelector("#box-seccion");
 function processMenu(opciones) {
     boxIngreso.innerHTML = "";
@@ -50,7 +50,7 @@ function processMenu(opciones) {
 const inputID = document.getElementById('ID');
 const inputPassword = document.getElementById('password');
 const ingreso = document.getElementById('boton');
-//buscador - modificar
+//buscador 
 const cajaBuscador = document.getElementById("container-buscador")
 const itemBusqueda = document.getElementById("buscador-Item");
 
@@ -69,9 +69,8 @@ const usuariosHabilitados = ingresosFree.find((user) => user.id === ingresoId)
 
                     const mainMensaje = document.querySelector('main');
                     mainMensaje.innerHTML = ""; 
-
-        //indicaciones del buscador
-        cajaBuscador.style.display = "flex"; 
+                    //indicaciones del buscador
+                    cajaBuscador.style.display = "flex"; 
 
         itemBusqueda.addEventListener("input", () => {
         const texto = itemBusqueda.value.toLowerCase().trim();
@@ -125,10 +124,117 @@ const usuariosHabilitados = ingresosFree.find((user) => user.id === ingresoId)
 }
 });
 
-//Habilito tambien la opcion de Enter para ingresar.
-inputPassword.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-        event.preventDefault(); 
-        ingreso.click();        
-    }
+//Datos de la Lista
+
+const peopleList = localStorage.getItem("Datos Lista");
+
+if(!peopleList){
+
+const listPeople = [
+    { numero: 501, nombre: 'Isabel M.', telefono: '+5492546554522554'},
+    { numero: 505, nombre: 'Gaston H', telefono: '+5492546554522555'},
+    { numero: 210, nombre: 'Martin A', telefono: '+5492546554522556'},
+    { numero: 898, nombre: 'Lucas S.', telefono: '+5492546554522557'},
+    { numero: 323, nombre: 'Marina Z.', telefono: '+5492546554522558'}
+];
+
+localStorage.setItem("Datos Lista", JSON.stringify(listPeople));
+}
+const tabla1 = document.getElementById("lista-general");
+
+function tablaActual() {
+    tabla1.innerHTML = "";
+    
+const datosPeople = localStorage.getItem("Datos Lista");
+    if (!datosPeople) return;
+    const listaPeople = JSON.parse(datosPeople);
+
+    listaPeople.forEach((persona, index) => {
+    const bloquePeople = `
+        <tr class="menu-item">
+        <th>${persona.numero}</th>
+        <th>${persona.nombre}</th>
+        <td class="datos">
+        <a href="#">${persona.telefono.trim()}</a>
+        </td>
+        <td>
+        <button onclick="borrarPeople(${index})">❌</button>
+        </td>
+        </tr>
+    `;
+    tabla1.innerHTML += bloquePeople;
+    });
+}
+
+    document.addEventListener("click", (e) => {
+    if (e.target.textContent === "Lista") {
+    
+    e.preventDefault(); 
+    
+    const seccionTabla = document.getElementById("container-tabla");
+    const nuevoIngreso = document.querySelector(".formPeople")
+    if (seccionTabla) {
+        if (seccionTabla.style.display === "block"){
+        seccionTabla.style.display = "none";
+
+        if(nuevoIngreso) nuevoIngreso.style.display = "none";
+
+        localStorage.setItem("verTabla", "no");
+
+    }else{
+        seccionTabla.style.display = "block";
+        tablaActual();
+
+        if(nuevoIngreso) nuevoIngreso.style.display = "block";
+}
+}
+}
 });
+
+localStorage.setItem("verTabla", "no");
+
+//funcion para borrar
+function borrarPeople(fila) {
+    const listaActual = JSON.parse(localStorage.getItem("Datos Lista"));
+
+        listaActual.splice(fila, 1);
+
+        localStorage.setItem("Datos Lista", JSON.stringify(listaActual));
+
+    tablaActual();
+}
+
+//form para agregar nuevos datos 
+function añadirPeople() {
+    const newPeople = {
+    numero: document.getElementById("nuevoNumero").value.trim(),
+    nombre: document.getElementById("nuevoNombre").value.trim(),
+    telefono: document.getElementById("nuevoTelefono").value.trim()
+    };
+
+    const { numero, nombre, telefono } = newPeople;
+
+    if (!numero || !nombre || !telefono) {
+    alert("Por favor, completa todos los campos");
+    return;
+    }
+
+const listaActual = JSON.parse(localStorage.getItem("Datos Lista")) || [];
+listaActual.push(newPeople);
+
+localStorage.setItem("Datos Lista", JSON.stringify(listaActual));
+
+alert(`¡Se agregó ${numero}, ${nombre} y ${telefono}!`);
+
+tablaActual();
+
+document.getElementById("nuevoNumero").value = "";
+document.getElementById("nuevoNombre").value = "";
+document.getElementById("nuevoTelefono").value = "";
+};
+
+window.añadirPeople = añadirPeople;
+
+
+
+
