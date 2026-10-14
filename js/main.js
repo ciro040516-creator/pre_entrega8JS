@@ -1,5 +1,5 @@
-
 //Simludaor Teenage Babe
+//Debo seguir configurando el prototipo. 14-10-26
 
 //Datos de ingresos habilitados
 const ingresosFree = [
@@ -69,6 +69,7 @@ const usuariosHabilitados = ingresosFree.find((user) => user.id === ingresoId)
 
                     const mainMensaje = document.querySelector('main');
                     mainMensaje.innerHTML = ""; 
+
                     //indicaciones del buscador
                     cajaBuscador.style.display = "flex"; 
 
@@ -91,7 +92,7 @@ const usuariosHabilitados = ingresosFree.find((user) => user.id === ingresoId)
 
                             const mensajePrivado = document.createElement('h4');
                             mensajePrivado.className = "para-Ana"; 
-                            mensajePrivado.textContent = 'Bienvenida Ana. Tu ingreso contará con la sección Avanzadas y Restricciones para tu configuración personal.';
+                            mensajePrivado.textContent = 'Bienvenida Ana. Tu ingreso contará con la sección de Avanzados y Restricciones para tu configuración personal.';
     
                             mainMensaje.appendChild(mensajePrivado);
 
@@ -125,11 +126,9 @@ const usuariosHabilitados = ingresosFree.find((user) => user.id === ingresoId)
 });
 
 //Datos de la Lista
-
 const peopleList = localStorage.getItem("Datos Lista");
 
 if(!peopleList){
-
 const listPeople = [
     { numero: 501, nombre: 'Isabel M.', telefono: '+5492546554522554'},
     { numero: 505, nombre: 'Gaston H', telefono: '+5492546554522555'},
@@ -140,8 +139,8 @@ const listPeople = [
 
 localStorage.setItem("Datos Lista", JSON.stringify(listPeople));
 }
-const tabla1 = document.getElementById("lista-general");
 
+const tabla1 = document.getElementById("lista-general");
 function tablaActual() {
     tabla1.innerHTML = "";
     
@@ -236,5 +235,12 @@ document.getElementById("nuevoTelefono").value = "";
 window.añadirPeople = añadirPeople;
 
 
+/*cambio de tamañana del logo - consultar
+                    const header = document.getElementById('caja-header')
+
+                    header.classList.remove('login')
+                    header.classList.add('login-in')
+
+                    document.getElementById('ingreso').style.display = 'none';*/
 
 

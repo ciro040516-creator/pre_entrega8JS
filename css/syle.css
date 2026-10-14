@@ -10,6 +10,10 @@
 body{
     min-height: 100vh; 
     font-family: "Google Sans Flex", sans-serif;
+    /*background-image: url('../img/2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;*/
     background-image: linear-gradient(-225deg, #69EACB 0%, #EACCF8 48%, #6654F1 100%);
     display: flex;
     flex-direction: column;
@@ -17,14 +21,13 @@ body{
 
 header{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 0.5rem;
+    margin:0.5rem;
 }
 
 nav{
-    gap: 0.5rem;
     font-size: 1.2rem;
     font-weight: bold;
     color: #62034d;
@@ -33,9 +36,6 @@ nav{
 
 ul{
     list-style: none;
-}
-li{
-    gap: 0.5rem;
 }
 
 main{
@@ -78,7 +78,7 @@ input{
 }
 
 button{
-    font-size: 1rem;
+    font-size: 1.2rem;
     background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
 }
 
@@ -89,7 +89,7 @@ button:hover{
 
 p{
 font-size: 0.5rem;
-font-weight: bold;
+font-family: "Bricolage Grotesque", sans-serif;
 }
 
 footer{
@@ -99,10 +99,60 @@ footer{
     margin-top: auto;
 }
 
-
+@property --angulo {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
 .logo_tb{
     height: 50vh;
+    width: 50vh;
     border-radius: 50%;
+    border: 0.5rem solid transparent;
+    background-origin: border-box;
+    background-clip: padding-box, border-box; 
+    background-image: linear-gradient(#f6f6f8, #040404), conic-gradient(from var(--angulo), #04f61c, aqua, #f5075e, #6654f1, rgb(248, 174, 216));
+    animation: girar 2s linear 0s infinite;
+}
+
+@keyframes girar{
+    to {
+    --angulo: 360deg;
+    }
+}
+/* para modificar el tamaño del logo una vez ingresa con el login
+#caja-header .login{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+#caja-header.login-in .logo_tb{
+    height: 20vh;
+    width: auto;
+}*/
+
+#box-seccion{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 1rem;
+    margin: 0.5rem;
+}
+
+.menu-item summary{
+    list-style: none;
+}
+
+.menu-item summary:hover{
+    text-decoration: underline;
+    color: rgb(245, 3, 47) ;
+}
+
+ul.submenu li{
+    margin-bottom: 0.5rem;
 }
 
 .submenu a{
@@ -112,16 +162,7 @@ footer{
 }
 
 .submenu a:hover{
-    background-color: rgb(255, 0, 144);
-}
-
-#box-seccion{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
-    gap: 1rem;
-    margin: 1rem;
+    text-decoration: underline;
 }
 
 
@@ -158,32 +199,16 @@ footer{
 }
 
 .mensaje-Inicio{
+    font-weight: bold;
     font-family: "Bricolage Grotesque", sans-serif;
     text-align: center;
     font-size: 2rem;
-    margin: 0.5rem ;
+    margin: 1rem ;
     gap: 1rem;
-    animation: mover 10s ease-in-out 0s infinite;
 }
 .bricolage{
     font-family: "Bricolage Grotesque", sans-serif;
 }
-
-@keyframes mover {  
-    20% {  
-    color: #04f61c;
-    }
-    30%{
-    color: aqua;
-    }  
-    30% {  
-    color: #f5075e;
-    }
-    20%{
-    color: #6654F1;
-    }
-    }
-
 
 .para-Ana{
     text-align: center;
@@ -233,6 +258,7 @@ footer{
     }
     .logo_tb{
         height: 30vh;
+        width: auto;
     }   
 
     .titulo,
@@ -249,6 +275,10 @@ footer{
 
 .mensaje-Inicio{
     font-size: 1.2rem;
+}
+
+#box-seccion{
+    gap: 0.5rem;
 }
 }
 
@@ -270,6 +300,7 @@ footer{
 
     .logo_tb{
         height: 20vh;
+        width: auto;
     }
 
     .mensaje-Inicio{
@@ -290,7 +321,8 @@ footer{
 }
 
 #box-seccion{
-    margin: 0.5rem;
+    flex-wrap: wrap;
+    margin: auto;
 }
 
     .filtros{
